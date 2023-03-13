@@ -1,0 +1,30 @@
+<div id="header">
+	<div id="logo">
+		<a href="/"><img src="images/logo.png" alt="LOGO" height="100" width="200"></a>
+	</div>
+	<div id="navigation">
+		<ul>
+			<li class="{{#ifEquals path ""}} selected {{/ifEquals}}">
+				<a href="/">Home</a>
+			</li>
+			<li class="{{#ifEquals path "travel"}} selected {{/ifEquals}}">
+				<a href="/travel">Travel</a>
+			</li>
+			<li class="{{#ifEquals path "rooms"}} selected {{/ifEquals}}">
+				<a href="/rooms">Rooms</a>
+			</li>
+			<li class="{{#ifEquals path "meals"}} selected {{/ifEquals}}">
+				<a href="/meals">Meals</a>
+			</li>
+			<li class="{{#ifEquals path "news"}} selected {{/ifEquals}}">
+				<a href="/news">News</a>
+			</li>
+			<li class="{{#ifEquals path "about"}} selected {{/ifEquals}}">
+				<a href="/about">About</a>
+			</li>
+			<li class="{{#ifEquals path "contact"}} selected {{/ifEquals}}">
+				<a href="/contact">Contact</a>
+			</li>
+		</ul>
+	</div>
+</div>
