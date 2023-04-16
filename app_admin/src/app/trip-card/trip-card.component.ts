@@ -16,12 +16,7 @@ export class TripCardComponent implements OnInit {
     private router: Router,
     private dataService: TripDataService,
     private authService: AuthenticationService
-  ) {
-    // allow page reloading by not reusing routes
-    this.router.routeReuseStrategy.shouldReuseRoute = () => {
-      return false;
-    }
-  }
+  ) {  }
 
   ngOnInit() { }
 
@@ -35,6 +30,10 @@ export class TripCardComponent implements OnInit {
     console.log('Inside TripListingComponent#deleteTrip');
     localStorage.removeItem("tripCode");
     this.dataService.deleteTrip(trip.code);
+    // allow page reloading by not reusing routes
+    this.router.routeReuseStrategy.shouldReuseRoute = () => {
+      return false;
+    };
     this.router.navigate([this.router.url]);
   }
 
