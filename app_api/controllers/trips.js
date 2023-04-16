@@ -3,9 +3,9 @@ const trip = mongoose.model('trips');
 const user = mongoose.model('users');
 
 const getUser = (req, res, callback) => {
-    if (req.payload && req.payload.email) {
+    if (req.auth && req.auth.email) {
         user
-            .findOne({ email: req.payload.email })
+            .findOne({ email: req.auth.email })
             .exec((err, user) => {
                 if (!user) {
                     return res

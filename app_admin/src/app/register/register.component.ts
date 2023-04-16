@@ -3,12 +3,12 @@ import { Router } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css']
 })
 
-export class LoginComponent implements OnInit {
+export class RegisterComponent implements OnInit {
 
   public formError: string = '';
 
@@ -25,18 +25,18 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() { }
 
-  public onLoginSubmit(): void {
+  public onRegisterSubmit(): void {
     this.formError = '';
     if (!this.credentials.email || !this.credentials.password) {
       this.formError = 'All fields are required, please try again';
     } else {
-      this.doLogin();
+      this.doRegister();
     }
   }
 
-  private doLogin(): void {
-    this.authenticationService.login(this.credentials)
-    .then(() => this.router.navigateByUrl('#'))
-    .catch((message) => this.formError = message);
-    }
+  private doRegister(): void {
+    this.authenticationService.register(this.credentials)
+      .then(() => this.router.navigateByUrl('#'))
+      .catch((message) => this.formError = message);
+  }
 }

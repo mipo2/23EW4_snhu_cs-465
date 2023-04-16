@@ -15,10 +15,11 @@ export class TripListingComponent implements OnInit {
   trips: Trip[];
   message: string;
 
-  constructor(private tripDataService: TripDataService,
+  constructor(
+    private tripDataService: TripDataService,
     private authService: AuthenticationService,
     private router: Router,
-    ) { }
+  ) { }
 
   private addTrip(): void {
     console.log('Inside TripListingComponent#addTrip');
