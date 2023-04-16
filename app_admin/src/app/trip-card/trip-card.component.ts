@@ -34,6 +34,7 @@ export class TripCardComponent implements OnInit {
     this.router.routeReuseStrategy.shouldReuseRoute = () => {
       return false;
     };
+    // reload page
     this.router.navigate([this.router.url]);
   }
 
