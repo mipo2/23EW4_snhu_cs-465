@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Trip } from '../models/trip';
 import { TripDataService } from '../services/trip-data.service';
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-trip-card',
@@ -13,7 +14,8 @@ export class TripCardComponent implements OnInit {
   @Input('trip') trip: any;
   constructor(
     private router: Router,
-    private dataService: TripDataService
+    private dataService: TripDataService,
+    private authService: AuthenticationService
   ) {
     // allow page reloading by not reusing routes
     this.router.routeReuseStrategy.shouldReuseRoute = () => {
@@ -21,8 +23,8 @@ export class TripCardComponent implements OnInit {
     }
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
+
   private editTrip(trip: Trip): void {
     console.log('Inside TripListingComponent#editTrip');
     localStorage.removeItem("tripCode");
@@ -34,5 +36,9 @@ export class TripCardComponent implements OnInit {
     localStorage.removeItem("tripCode");
     this.dataService.deleteTrip(trip.code);
     this.router.navigate([this.router.url]);
+  }
+
+  private isLoggedIn(): boolean {
+    return this.authService.isLoggedIn();
   }
 }
